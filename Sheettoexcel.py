@@ -50,7 +50,7 @@ def extract_dict_from_text(textstring):
     return(entry_dict)
 
 img = cv2.imread(
-    "H:\\DataAnalytics\\raw_data\\voterlist\\ap\\01\\extracts\\20.png")
+    "./input/19.png")
 
 box_height = 149
 box_width = 375
