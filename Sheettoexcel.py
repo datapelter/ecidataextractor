@@ -17,7 +17,7 @@ def extract_dict_from_text(textstring):
 
     entry_dict = {}
 
-    print(textstring)
+    
     textstring = textstring.replace('\n', '#')
     # print(textstring)
 
@@ -39,9 +39,12 @@ def extract_dict_from_text(textstring):
 
     age = re.search(r'(?<=ge)(.*)(?=Ge)', textstring)
     entry_dict['age'] = cleanStringEntry(age.group())
- 
+    
     gender = re.search(r'(?<=der)(.*)(?=(E|R))', textstring)
-    entry_dict['gender'] = cleanStringEntry(gender.group())
+    if 'FEMAL' in gender.group():
+        entry_dict['gender'] = 'FEMALE'
+    else:
+        entry_dict['gender'] = 'MALE'
  
     print(entry_dict)
     return(entry_dict)
